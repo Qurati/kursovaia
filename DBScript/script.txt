@@ -1,0 +1,61 @@
+
+CREATE TABLE query_categories (
+    query_categories_id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    level INT NOT NULL DEFAULT 1,
+    limit_value INT DEFAULT NULL
+);
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    login VARCHAR(100) NOT NULL UNIQUE,
+    tarif VARCHAR(50) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    date_registration TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Requests (
+    Requests_id SERIAL PRIMARY KEY,
+    query_categories_id INT NOT NULL,
+    user_id INT NOT NULL,
+    length INT NOT NULL,
+    time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (query_categories_id) REFERENCES query_categories(query_categories_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+CREATE INDEX idx_requests_user_id ON Requests(user_id);
+CREATE INDEX idx_requests_query_categories_id ON Requests(query_categories_id);
+CREATE INDEX idx_requests_time ON Requests(time);
+CREATE INDEX idx_users_login ON users(login);
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_query_categories_name ON query_categories(name);
+
+
+COMMENT ON COLUMN query_categories.query_categories_id IS 'ID категории';
+COMMENT ON COLUMN query_categories.name IS 'Название категории';
+COMMENT ON COLUMN query_categories.level IS 'Уровень категории';
+COMMENT ON COLUMN query_categories.limit_value IS 'Лимит для категории';
+
+COMMENT ON COLUMN users.user_id IS 'ID пользователя';
+COMMENT ON COLUMN users.login IS 'Логин пользователя';
+COMMENT ON COLUMN users.tarif IS 'Тариф пользователя';
+COMMENT ON COLUMN users.email IS 'Email пользователя';
+COMMENT ON COLUMN users.date_registration IS 'Дата регистрации';
+
+COMMENT ON COLUMN Requests.Requests_id IS 'ID запроса';
+COMMENT ON COLUMN Requests.query_categories_id IS 'ID категории запроса';
+COMMENT ON COLUMN Requests.user_id IS 'ID пользователя';
+COMMENT ON COLUMN Requests.length IS 'Длина запросарезультата';
+COMMENT ON COLUMN Requests.time IS 'Время выполнения запроса';
+
+INSERT INTO query_categories (name, level, limit_value) VALUES
+('Общие вопросы', 1, 100),
+('Техническая поддержка', 2, 50),
+('Финансовые вопросы', 3, 30);
+
+INSERT INTO users (login, tarif, email, date_registration) VALUES
+('user1', 'Базовый', 'user1@example.com', NOW()),
+('user2', 'Премиум', 'user2@example.com', NOW());
+
+INSERT INTO Requests (query_categories_id, user_id, length, time) VALUES
+(1, 1, 150, NOW()),
+(2, 2, 75, NOW());	
