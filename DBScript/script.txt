@@ -1,4 +1,3 @@
-
 CREATE TABLE query_categories (
     query_categories_id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -29,23 +28,6 @@ CREATE INDEX idx_users_login ON users(login);
 CREATE INDEX idx_users_email ON users(email);
 CREATE INDEX idx_query_categories_name ON query_categories(name);
 
-
-COMMENT ON COLUMN query_categories.query_categories_id IS 'ID категории';
-COMMENT ON COLUMN query_categories.name IS 'Название категории';
-COMMENT ON COLUMN query_categories.level IS 'Уровень категории';
-COMMENT ON COLUMN query_categories.limit_value IS 'Лимит для категории';
-
-COMMENT ON COLUMN users.user_id IS 'ID пользователя';
-COMMENT ON COLUMN users.login IS 'Логин пользователя';
-COMMENT ON COLUMN users.tarif IS 'Тариф пользователя';
-COMMENT ON COLUMN users.email IS 'Email пользователя';
-COMMENT ON COLUMN users.date_registration IS 'Дата регистрации';
-
-COMMENT ON COLUMN Requests.Requests_id IS 'ID запроса';
-COMMENT ON COLUMN Requests.query_categories_id IS 'ID категории запроса';
-COMMENT ON COLUMN Requests.user_id IS 'ID пользователя';
-COMMENT ON COLUMN Requests.length IS 'Длина запросарезультата';
-COMMENT ON COLUMN Requests.time IS 'Время выполнения запроса';
 
 INSERT INTO query_categories (name, level, limit_value) VALUES
 ('Общие вопросы', 1, 100),
