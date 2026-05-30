@@ -1,4 +1,3 @@
-
 CREATE TABLE query_categories (
     query_categories_id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
