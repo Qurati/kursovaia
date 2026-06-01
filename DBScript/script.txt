@@ -1,0 +1,43 @@
+CREATE TABLE query_categories (
+    query_categories_id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    level INT NOT NULL DEFAULT 1,
+    limit_value INT DEFAULT NULL
+);
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    login VARCHAR(100) NOT NULL UNIQUE,
+    tarif VARCHAR(50) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    date_registration TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Requests (
+    Requests_id SERIAL PRIMARY KEY,
+    query_categories_id INT NOT NULL,
+    user_id INT NOT NULL,
+    length INT NOT NULL,
+    time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (query_categories_id) REFERENCES query_categories(query_categories_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+CREATE INDEX idx_requests_user_id ON Requests(user_id);
+CREATE INDEX idx_requests_query_categories_id ON Requests(query_categories_id);
+CREATE INDEX idx_requests_time ON Requests(time);
+CREATE INDEX idx_users_login ON users(login);
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_query_categories_name ON query_categories(name);
+
+
+INSERT INTO query_categories (name, level, limit_value) VALUES
+('Общие вопросы', 1, 100),
+('Техническая поддержка', 2, 50),
+('Финансовые вопросы', 3, 30);
+
+INSERT INTO users (login, tarif, email, date_registration) VALUES
+('user1', 'Базовый', 'user1@example.com', NOW()),
+('user2', 'Премиум', 'user2@example.com', NOW());
+
+INSERT INTO Requests (query_categories_id, user_id, length, time) VALUES
+(1, 1, 150, NOW()),
+(2, 2, 75, NOW());	
