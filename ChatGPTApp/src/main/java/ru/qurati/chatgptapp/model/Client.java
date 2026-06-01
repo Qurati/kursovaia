@@ -2,8 +2,11 @@ package ru.qurati.chatgptapp.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
+=======
+>>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
 
 @Entity
 @Table(name = "users")
@@ -25,9 +28,12 @@ public class Client {
     @Column(name = "date_registration")
     private LocalDateTime dateRegistration;
 
+<<<<<<< HEAD
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Request> requests = new ArrayList<>();
 
+=======
+>>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
     public Integer getUserId() {
         return userId;
     }
@@ -71,6 +77,7 @@ public class Client {
         this.dateRegistration = dateRegistration;
     }
 
+<<<<<<< HEAD
     public List<Request> getRequests() {
         return requests;
     }
@@ -79,6 +86,8 @@ public class Client {
         this.requests = requests;
     }
 
+=======
+>>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
     @Override
     public String toString() {
         return login;

@@ -9,19 +9,32 @@ import java.io.IOException;
 public class ChatGPTApp extends Application {
     public static Stage primaryStage;
     public static Scene clients;
+<<<<<<< HEAD
     public static Scene quearyCategories;
+=======
+    public static Scene kindCredits;
+>>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
     public static Scene requests;
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
         clients = createScene("client-view.fxml");
         requests = createScene("request-view.fxml");
+<<<<<<< HEAD
         quearyCategories = createScene("query-categories-view.fxml");
         primaryStage.setMinWidth(1200);
         primaryStage.setMinHeight(675);
         primaryStage.setTitle("Пользователи");
         clients.getStylesheets().add("base-styles.css");
         quearyCategories.getStylesheets().add("base-styles.css");
+=======
+        kindCredits = createScene("query-categories-view.fxml");
+        primaryStage.setMinWidth(1200);
+        primaryStage.setMinHeight(675);
+        primaryStage.setTitle("Клиенты");
+        clients.getStylesheets().add("base-styles.css");
+        kindCredits.getStylesheets().add("base-styles.css");
+>>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
         requests.getStylesheets().add("base-styles.css");
         primaryStage.setScene(clients);
         primaryStage.show();

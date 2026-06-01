@@ -22,6 +22,7 @@ public class QueryCategoriesController {
     private List<QueryCategories> queryCategories;
 
     @FXML
+<<<<<<< HEAD
     private Button btnUsers;
     @FXML
     private TableColumn<?, ?> conditionColumn;
@@ -31,10 +32,26 @@ public class QueryCategoriesController {
     private TableView<QueryCategoriesTableItem> kindCreditsTable;
     @FXML
     private Button btnQuearyCategories;
+=======
+    private Button btnClients;
+    @FXML
+    private TableColumn<?, ?> conditionColumn;
+    @FXML
+    private Button btnCredits;
+    @FXML
+    private TableView<QueryCategoriesTableItem> kindCreditsTable;
+    @FXML
+    private Button btnKindCredit;
+>>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
     @FXML
     private TableColumn<?, ?> nameColumn;
     @FXML
     private TableColumn<?, ?> rateColumn;
+<<<<<<< HEAD
+=======
+    @FXML
+    private TableColumn<?, ?> termColumn;
+>>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
 
     private ObservableList<QueryCategoriesTableItem> creditsObservable;
 
@@ -65,7 +82,11 @@ public class QueryCategoriesController {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Подтверждение удаления");
             alert.setHeaderText("Удаление записи");
+<<<<<<< HEAD
             alert.setContentText("Вы действительно хотите удалить \"" + currentItem.getName() + "\"?\n\n"+"Это приведет к удалению записей в таблице \"Запросы\"");
+=======
+            alert.setContentText("Вы действительно хотите удалить \"" + currentItem.getName() + "\"?");
+>>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 new QueryCategoriesService().delete(currentItem.getKindCredit());
@@ -133,11 +154,18 @@ public class QueryCategoriesController {
         updateList();
     }
 
+<<<<<<< HEAD
     public void btnClientsOnAction(ActionEvent actionEvent) {
         ChatGPTApp.primaryStage.setScene(ChatGPTApp.clients);
     }
 
     public void btnRequestsOnAction(ActionEvent actionEvent) {
+=======
+    public void btnClients(ActionEvent actionEvent) {
+        ChatGPTApp.primaryStage.setScene(ChatGPTApp.clients);
+    }
+    public void btnRquestsOnAction(ActionEvent actionEvent) {
+>>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
         ChatGPTApp.primaryStage.setScene(ChatGPTApp.requests);
     }
 }

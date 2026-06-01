@@ -21,13 +21,28 @@ import java.util.Optional;
 
 public class ClientController {
     private List<Client> clients;
+<<<<<<< HEAD
     private ObservableList<ClientTableItem> clientsObservable;
 
     @FXML
+=======
+    private ObservableList<ClientTableItem> creditsObservable;
+
+    @FXML
+    private Label welcomeText;
+    @FXML
+    private TableColumn<?, ?> addressColumn;
+    @FXML
+>>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
     private TableColumn<?, ?> emailColumn;
     @FXML
     private TableColumn<?, ?> kindPropertyColumn;
     @FXML
+<<<<<<< HEAD
+=======
+    private TableColumn<?, ?> phoneColumn;
+    @FXML
+>>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
     private TableView<ClientTableItem> clientsTable;
     @FXML
     private TableColumn<Client, String> nameColumn;
@@ -57,11 +72,19 @@ public class ClientController {
 
     private void updateList() {
         clients = new ClientService().findAll();
+<<<<<<< HEAD
         clientsObservable = FXCollections.observableArrayList();
         for (Client client : clients) {
             clientsObservable.add(new ClientTableItem(client));
         }
         clientsTable.setItems(clientsObservable);
+=======
+        creditsObservable = FXCollections.observableArrayList();
+        for (Client client : clients) {
+            creditsObservable.add(new ClientTableItem(client));
+        }
+        clientsTable.setItems(creditsObservable);
+>>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
     }
 
     @FXML
@@ -72,7 +95,11 @@ public class ClientController {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Подтверждение удаления");
             alert.setHeaderText("Удаление записи");
+<<<<<<< HEAD
             alert.setContentText("Вы действительно хотите удалить \"" + currentItem.getLogin() + "\"?\n\n"+"Это приведет к удалению записей в таблице \"Запросы\"");
+=======
+            alert.setContentText("Вы действительно хотите удалить \"" + currentItem.getLogin() + "\"?");
+>>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 new ClientService().delete(currentItem.getClient());
@@ -132,6 +159,7 @@ public class ClientController {
         updateList();
     }
 
+<<<<<<< HEAD
     public void btnRequestsOnAction(ActionEvent actionEvent) {
         ChatGPTApp.primaryStage.setScene(ChatGPTApp.requests);
     }
@@ -143,4 +171,16 @@ public class ClientController {
     public void btnClientsOnAction(ActionEvent actionEvent) {
         ChatGPTApp.primaryStage.setScene(ChatGPTApp.clients);
     }
+=======
+    public void btnCreditsOnAction(ActionEvent actionEvent) {
+        ChatGPTApp.primaryStage.setScene(ChatGPTApp.clients);
+    }
+
+    public void btnKindCreditOnAction(ActionEvent actionEvent) {
+        ChatGPTApp.primaryStage.setScene(ChatGPTApp.kindCredits);
+    }
+    public void btnrRquestsOnAction(ActionEvent actionEvent) {
+        ChatGPTApp.primaryStage.setScene(ChatGPTApp.requests);
+    }
+>>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
 }
