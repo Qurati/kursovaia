@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>ru.zelmex</groupId>
-    <artifactId>bank-app</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>bank-app</name>
+    <groupId>ru.qurati</groupId>
+    <artifactId>chatgpt-app</artifactId>
+    <version>0.0.1</version>
+    <name>chatgpt-app</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -85,7 +85,7 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
                     <execution>
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>ru.zelmex.bankapp/ru.qurati.chatgptapp.ChatGPTApp</mainClass>
+                            <mainClass>ru.qurati.chatgptapp.ChatGPTApp</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

@@ -21,42 +21,44 @@ import java.util.Optional;
 public class QueryCategoriesController {
     private List<QueryCategories> queryCategories;
 
+    private ObservableList<QueryCategoriesTableItem> creditsObservable;
     @FXML
-<<<<<<< HEAD
-    private Button btnUsers;
+    private TableView<QueryCategoriesTableItem> QueryCategoriesTable;
+
     @FXML
-    private TableColumn<?, ?> conditionColumn;
+    private Button btnAddKindCredit;
+
     @FXML
-    private Button btnRequests;
+    private Button btnClients;
+
     @FXML
-    private TableView<QueryCategoriesTableItem> kindCreditsTable;
+    private Button btnDeleteQueryCategories;
+
+    @FXML
+    private Button btnEditQueryCategories;
+
+    @FXML
+    private Button btnOff;
+
     @FXML
     private Button btnQuearyCategories;
-=======
-    private Button btnClients;
+
+    @FXML
+    private Button btnRequests;
+
+    @FXML
+    private Button btnUpdateQueryCategories;
+
     @FXML
     private TableColumn<?, ?> conditionColumn;
-    @FXML
-    private Button btnCredits;
-    @FXML
-    private TableView<QueryCategoriesTableItem> kindCreditsTable;
-    @FXML
-    private Button btnKindCredit;
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
+
     @FXML
     private TableColumn<?, ?> nameColumn;
+
     @FXML
     private TableColumn<?, ?> rateColumn;
-<<<<<<< HEAD
-=======
     @FXML
-    private TableColumn<?, ?> termColumn;
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
-
-    private ObservableList<QueryCategoriesTableItem> creditsObservable;
-
-    @FXML
-    void btnAddKindCredit(ActionEvent event) {
+    void btnAddQueryCategories(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(ChatGPTApp.class.getResource("add-edit-query-categories-dialog.fxml"));
             Stage dialogStage = new Stage();
@@ -75,22 +77,18 @@ public class QueryCategoriesController {
     }
 
     @FXML
-    void btnDeleteKindCredit(ActionEvent event) {
-        QueryCategoriesTableItem currentItem = kindCreditsTable.getSelectionModel().getSelectedItem();
-        int currentItemId = kindCreditsTable.getSelectionModel().getSelectedIndex();
+    void btnDeleteQueryCategories(ActionEvent event) {
+        QueryCategoriesTableItem currentItem = QueryCategoriesTable.getSelectionModel().getSelectedItem();
+        int currentItemId = QueryCategoriesTable.getSelectionModel().getSelectedIndex();
         if (currentItemId != -1) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Подтверждение удаления");
             alert.setHeaderText("Удаление записи");
-<<<<<<< HEAD
             alert.setContentText("Вы действительно хотите удалить \"" + currentItem.getName() + "\"?\n\n"+"Это приведет к удалению записей в таблице \"Запросы\"");
-=======
-            alert.setContentText("Вы действительно хотите удалить \"" + currentItem.getName() + "\"?");
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 new QueryCategoriesService().delete(currentItem.getKindCredit());
-                kindCreditsTable.getItems().remove(currentItemId);
+                QueryCategoriesTable.getItems().remove(currentItemId);
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -101,9 +99,9 @@ public class QueryCategoriesController {
     }
 
     @FXML
-    void btnEditKindCredit(ActionEvent event) {
-        QueryCategoriesTableItem currentItem = kindCreditsTable.getSelectionModel().getSelectedItem();
-        int currentItemId = kindCreditsTable.getSelectionModel().getSelectedIndex();
+    void btnEditQueryCategories(ActionEvent event) {
+        QueryCategoriesTableItem currentItem = QueryCategoriesTable.getSelectionModel().getSelectedItem();
+        int currentItemId = QueryCategoriesTable.getSelectionModel().getSelectedIndex();
         if (currentItemId != -1) {
             try {
                 FXMLLoader loader = new FXMLLoader(ChatGPTApp.class.getResource("add-edit-query-categories-dialog.fxml"));
@@ -134,7 +132,7 @@ public class QueryCategoriesController {
     }
 
     @FXML
-    void btnUpdateKindCredits(ActionEvent event) {
+    void btnUpdateQueryCategories(ActionEvent event) {
         updateList();
     }
 
@@ -144,7 +142,7 @@ public class QueryCategoriesController {
         for (QueryCategories queryCategories : this.queryCategories) {
             creditsObservable.add(new QueryCategoriesTableItem(queryCategories));
         }
-        kindCreditsTable.setItems(creditsObservable);
+        QueryCategoriesTable.setItems(creditsObservable);
     }
 
     public void initialize() {
@@ -154,18 +152,10 @@ public class QueryCategoriesController {
         updateList();
     }
 
-<<<<<<< HEAD
     public void btnClientsOnAction(ActionEvent actionEvent) {
         ChatGPTApp.primaryStage.setScene(ChatGPTApp.clients);
     }
-
     public void btnRequestsOnAction(ActionEvent actionEvent) {
-=======
-    public void btnClients(ActionEvent actionEvent) {
-        ChatGPTApp.primaryStage.setScene(ChatGPTApp.clients);
-    }
-    public void btnRquestsOnAction(ActionEvent actionEvent) {
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
         ChatGPTApp.primaryStage.setScene(ChatGPTApp.requests);
     }
 }

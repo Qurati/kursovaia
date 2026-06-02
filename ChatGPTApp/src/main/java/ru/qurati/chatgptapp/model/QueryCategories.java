@@ -1,11 +1,8 @@
 package ru.qurati.chatgptapp.model;
 
 import jakarta.persistence.*;
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
-=======
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
 
 @Entity
 @Table(name = "query_categories")
@@ -24,12 +21,9 @@ public class QueryCategories {
     @Column(name = "limit_value")
     private Integer limitValue;
 
-<<<<<<< HEAD
     @OneToMany(mappedBy = "queryCategory")
     private List<Request> requests = new ArrayList<>();
 
-=======
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
     public Integer getQueryCategoriesId() {
         return queryCategoriesId;
     }
@@ -83,7 +77,6 @@ public class QueryCategories {
         }
     }
 
-<<<<<<< HEAD
     public List<Request> getRequests() {
         return requests;
     }
@@ -92,8 +85,7 @@ public class QueryCategories {
         this.requests = requests;
     }
 
-=======
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
+
     @Override
     public String toString() {
         return name;

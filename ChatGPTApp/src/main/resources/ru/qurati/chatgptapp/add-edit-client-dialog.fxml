@@ -15,11 +15,7 @@
     <children>
         <Label text="Пользователь:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
         <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-<<<<<<< HEAD
         <Label text="Дата регистрации:" GridPane.rowIndex="3" />
-=======
-        <Label text="Дата ргеистрации:" GridPane.rowIndex="3" />
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
         <TextField fx:id="dateRegistration" GridPane.columnIndex="1" GridPane.rowIndex="3" />
         <Label text="Почта:" GridPane.rowIndex="2" />
         <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -41,12 +37,6 @@
         <RowConstraints />
         <RowConstraints />
         <RowConstraints minHeight="10.0" prefHeight="30.0" />
-<<<<<<< HEAD
         <RowConstraints />
     </rowConstraints>
 </GridPane>
-=======
-      <RowConstraints />
-    </rowConstraints>
-</GridPane>
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b

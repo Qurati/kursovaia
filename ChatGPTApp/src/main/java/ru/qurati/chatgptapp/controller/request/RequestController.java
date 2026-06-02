@@ -116,29 +116,13 @@ public class RequestController {
     }
 
     @FXML
-<<<<<<< HEAD
     void btnClientsOnAction(ActionEvent event) {
-=======
-    void btnCredits(ActionEvent event) {
-        // Исправлено: было ChatGPTApp.clients, но, судя по контексту, должно быть requests или clients
-        // Если нужно переключиться на clients:
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
         ChatGPTApp.primaryStage.setScene(ChatGPTApp.clients);
     }
 
     @FXML
-<<<<<<< HEAD
-    void btnQuearyCategoriesOnAction(ActionEvent event) {
-        ChatGPTApp.primaryStage.setScene(ChatGPTApp.quearyCategories);
-=======
-    void btnClients(ActionEvent event) {
-        ChatGPTApp.primaryStage.setScene(ChatGPTApp.clients);
-    }
-
-    @FXML
-    void btnKindCredit(ActionEvent event) {
-        ChatGPTApp.primaryStage.setScene(ChatGPTApp.kindCredits);
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
+    void btnQueryCategoriesOnAction(ActionEvent event) {
+        ChatGPTApp.primaryStage.setScene(ChatGPTApp.QueryCategories);
     }
 
     @FXML
@@ -151,31 +135,18 @@ public class RequestController {
         categoryMap = new HashMap<>();
         userMap = new HashMap<>();
 
-<<<<<<< HEAD
-=======
-        // Загрузка карты категорий
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
         for (QueryCategories credit : new QueryCategoriesService().findAll()) {
             categoryMap.put(credit.getQueryCategoriesId(), credit.getName());
         }
 
-<<<<<<< HEAD
-=======
-        // Загрузка карты пользователей
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
         for (Client client : new ClientService().findAll()) {
             userMap.put(client.getUserId(), client.getLogin());
         }
 
         requestsObservable = FXCollections.observableArrayList();
         for (Request request : requests) {
-<<<<<<< HEAD
             String categoryName = categoryMap.getOrDefault(request.getQueryCategory().getQueryCategoriesId(), "Неизвестно");
             String userLogin = userMap.getOrDefault(request.getClient().getUserId(), "Неизвестно");
-=======
-            String categoryName = categoryMap.getOrDefault(request.getQueryCategoriesId(), "Неизвестно");
-            String userLogin = userMap.getOrDefault(request.getUserId(), "Неизвестно");
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
             requestsObservable.add(new RequestTableItem(request, categoryName, userLogin));
         }
         requestsTable.setItems(requestsObservable);

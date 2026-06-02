@@ -36,19 +36,14 @@ public class AddEditRequestDialog implements Initializable {
     private Request request;
     private ObservableList<String> categories;
     private ObservableList<String> users;
-<<<<<<< HEAD
     private java.util.Map<String, QueryCategories> categoryMap;
     private java.util.Map<String, Client> userMap;
-=======
-    private java.util.Map<String, Integer> categoryIdMap;
-    private java.util.Map<String, Integer> userIdMap;
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         categories = FXCollections.observableArrayList();
         users = FXCollections.observableArrayList();
-<<<<<<< HEAD
         categoryMap = new java.util.HashMap<>();
         userMap = new java.util.HashMap<>();
 
@@ -60,21 +55,6 @@ public class AddEditRequestDialog implements Initializable {
         for (Client client : new ClientService().findAll()) {
             users.add(client.getLogin());
             userMap.put(client.getLogin(), client);
-=======
-        categoryIdMap = new java.util.HashMap<>();
-        userIdMap = new java.util.HashMap<>();
-
-        // Загрузка категорий (видов кредитов)
-        for (QueryCategories credit : new QueryCategoriesService().findAll()) {
-            categories.add(credit.getName());
-            categoryIdMap.put(credit.getName(), credit.getQueryCategoriesId());
-        }
-
-        // Загрузка пользователей
-        for (Client client : new ClientService().findAll()) {
-            users.add(client.getLogin());
-            userIdMap.put(client.getLogin(), client.getUserId());
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
         }
 
         categoryComboBox.setItems(categories);
@@ -108,13 +88,8 @@ public class AddEditRequestDialog implements Initializable {
             }
 
             Request newRequest = new Request();
-<<<<<<< HEAD
             newRequest.setQueryCategory(categoryMap.get(selectedCategory));
             newRequest.setClient(userMap.get(selectedUser));
-=======
-            newRequest.setQueryCategoriesId(categoryIdMap.get(selectedCategory));
-            newRequest.setUserId(userIdMap.get(selectedUser));
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
             newRequest.setLength(String.valueOf(length));
             newRequest.setTime(LocalDateTime.now());
 
@@ -151,17 +126,9 @@ public class AddEditRequestDialog implements Initializable {
                 throw new IllegalArgumentException("Длина должна быть целым числом!");
             }
 
-<<<<<<< HEAD
             request.setQueryCategory(categoryMap.get(selectedCategory));
             request.setClient(userMap.get(selectedUser));
             request.setLength(String.valueOf(length));
-=======
-            request.setQueryCategoriesId(categoryIdMap.get(selectedCategory));
-            request.setUserId(userIdMap.get(selectedUser));
-            request.setLength(String.valueOf(length));
-            // При редактировании не обновляем время, оставляем исходное
-            // request.setTime(LocalDateTime.now());
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
 
             new RequestService().update(request);
             dialogStage.close();
@@ -179,29 +146,12 @@ public class AddEditRequestDialog implements Initializable {
         this.request = request;
         this.dialogStage = dialogStage;
 
-<<<<<<< HEAD
         if (request.getQueryCategory() != null) {
             categoryComboBox.getSelectionModel().select(request.getQueryCategory().getName());
         }
 
         if (request.getClient() != null) {
             userComboBox.getSelectionModel().select(request.getClient().getLogin());
-=======
-        // Установка выбранной категории
-        for (java.util.Map.Entry<String, Integer> entry : categoryIdMap.entrySet()) {
-            if (entry.getValue().equals(request.getQueryCategoriesId())) {
-                categoryComboBox.getSelectionModel().select(entry.getKey());
-                break;
-            }
-        }
-
-        // Установка выбранного пользователя
-        for (java.util.Map.Entry<String, Integer> entry : userIdMap.entrySet()) {
-            if (entry.getValue().equals(request.getUserId())) {
-                userComboBox.getSelectionModel().select(entry.getKey());
-                break;
-            }
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
         }
 
         lengthField.setText(String.valueOf(request.getLength()));

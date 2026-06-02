@@ -2,10 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<<<<<<< HEAD
 <?import javafx.scene.control.Label?>
-=======
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -14,18 +11,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<<<<<<< HEAD
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.qurati.chatgptapp.controller.request.RequestController">
     <children>
         <SplitPane dividerPositions="0.4463087248322148" orientation="VERTICAL" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-=======
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.qurati.chatgptapp.controller.request.RequestController">
-    <children>
-        <SplitPane dividerPositions="0.4463087248322148" layoutX="228.0" layoutY="50.0" orientation="VERTICAL" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
             <items>
                 <AnchorPane maxHeight="-Infinity" prefHeight="150.0" prefWidth="200.0">
                     <children>
@@ -33,29 +23,17 @@
                             <children>
                                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                                     <children>
-<<<<<<< HEAD
                                         <Button fx:id="btnRequests" contentDisplay="CENTER" mnemonicParsing="false" text="Запросы" textAlignment="CENTER">
-=======
-                                        <Button fx:id="btnCredits" contentDisplay="CENTER" mnemonicParsing="false" text="Запросы" textAlignment="CENTER">
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
                                             <HBox.margin>
                                                 <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
                                             </HBox.margin>
                                         </Button>
-<<<<<<< HEAD
                                         <Button fx:id="btnClients" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnClientsOnAction" text="Пользователи" textAlignment="CENTER">
-=======
-                                        <Button fx:id="btnClients" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnClients" text="Пользователи" textAlignment="CENTER">
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
                                             <HBox.margin>
                                                 <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
                                             </HBox.margin>
                                         </Button>
-<<<<<<< HEAD
-                                        <Button fx:id="btnQuearyCategories" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnQuearyCategoriesOnAction" text="Категории запросов" textAlignment="CENTER">
-=======
-                                        <Button fx:id="btnKindCredit" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnKindCredit" text="Категории запросов" textAlignment="CENTER">
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
+                                        <Button fx:id="btnQueryCategories" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnQueryCategoriesOnAction" text="Категории запросов" textAlignment="CENTER">
                                             <HBox.margin>
                                                 <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
                                             </HBox.margin>
@@ -114,7 +92,6 @@
                                                 <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
                                             </HBox.margin>
                                         </Button>
-<<<<<<< HEAD
                               <Label alignment="CENTER" text="Баранов Артём 245Гр">
                                  <font>
                                     <Font size="29.0" />
@@ -126,8 +103,6 @@
                                     <Insets left="200.0" />
                                  </HBox.margin>
                               </Label>
-=======
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
                                     </children>
                                 </HBox>
                             </children>
@@ -136,11 +111,7 @@
                 </AnchorPane>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0">
                     <children>
-<<<<<<< HEAD
                         <TableView fx:id="requestsTable" prefHeight="163.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-=======
-                        <TableView fx:id="requestsTable" layoutX="127.0" layoutY="-37.0" prefHeight="163.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
->>>>>>> 7ddce83372b90a65811b77c110b413a2eb81751b
                             <columns>
                                 <TableColumn fx:id="categoryColumn" prefWidth="200.0" text="Категория" />
                                 <TableColumn fx:id="userColumn" prefWidth="200.0" text="Пользователь" />
